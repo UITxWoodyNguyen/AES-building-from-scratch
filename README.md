@@ -1,4 +1,4 @@
-# Lab 2: Tối ưu và Hoàn thiện AES Suite (NT219 - Mật mã học)
+# Lab 2: Building AES from scratch
 
 Bộ thư viện mã hóa khối **AES (FIPS 197)** và các chế độ hoạt động **NIST SP 800-38A, SP 800-38C, SP 800-38D**, tự cài đặt hoàn toàn bằng C++17 tiêu chuẩn (không sử dụng OpenSSL, Crypto++, mbedTLS...).
 
