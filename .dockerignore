@@ -1,0 +1,15 @@
+Build_*
+build_*
+.git
+.gitignore
+__pycache__
+*.pyc
+.pytest_cache
+*.o
+*.a
+*.so
+*.dll
+*.exe
+*.log
+docs/
+

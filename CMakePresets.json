@@ -1,0 +1,149 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "msvc-release",
+      "displayName": "MSVC Release",
+      "generator": "Visual Studio 18 2026",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/Build_msvc",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "AES_ENABLE_AESNI": "ON",
+        "AES_BUILD_TESTS": "ON",
+        "AES_BUILD_BENCH": "ON"
+      }
+    },
+    {
+      "name": "msvc-debug",
+      "displayName": "MSVC Debug",
+      "generator": "Visual Studio 18 2026",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/Build_msvc_debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "AES_BUILD_TESTS": "ON"
+      }
+    },
+    {
+      "name": "gcc-release",
+      "displayName": "GCC Release (MinGW64)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/Build_gcc",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/gcc.exe",
+        "CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/g++.exe",
+        "CMAKE_MAKE_PROGRAM": "C:/msys64/mingw64/bin/ninja.exe",
+        "CMAKE_BUILD_TYPE": "Release",
+        "AES_ENABLE_AESNI": "ON",
+        "AES_BUILD_TESTS": "ON",
+        "AES_BUILD_BENCH": "ON"
+      }
+    },
+    {
+      "name": "gcc-debug",
+      "displayName": "GCC Debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/Build_gcc_debug",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/gcc.exe",
+        "CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/g++.exe",
+        "CMAKE_MAKE_PROGRAM": "C:/msys64/mingw64/bin/ninja.exe",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "AES_BUILD_TESTS": "ON"
+      }
+    },
+    {
+      "name": "gcc-asan",
+      "displayName": "GCC with ASan+UBSan",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/Build_gcc_asan",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/gcc.exe",
+        "CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/g++.exe",
+        "CMAKE_MAKE_PROGRAM": "C:/msys64/mingw64/bin/ninja.exe",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "AES_ENABLE_SANITIZERS": "ON",
+        "AES_BUILD_TESTS": "ON"
+      }
+    },
+    {
+      "name": "clang-release",
+      "displayName": "Clang Release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/Build_clang",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/clang.exe",
+        "CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/clang++.exe",
+        "CMAKE_MAKE_PROGRAM": "C:/msys64/mingw64/bin/ninja.exe",
+        "CMAKE_BUILD_TYPE": "Release",
+        "AES_ENABLE_AESNI": "ON",
+        "AES_BUILD_TESTS": "ON",
+        "AES_BUILD_BENCH": "ON"
+      }
+    },
+    {
+      "name": "clang-debug",
+      "displayName": "Clang Debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/Build_clang_debug",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/clang.exe",
+        "CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/clang++.exe",
+        "CMAKE_MAKE_PROGRAM": "C:/msys64/mingw64/bin/ninja.exe",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "AES_BUILD_TESTS": "ON"
+      }
+    },
+    {
+      "name": "clang-asan",
+      "displayName": "Clang with ASan+UBSan",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/Build_clang_asan",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/clang.exe",
+        "CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/clang++.exe",
+        "CMAKE_MAKE_PROGRAM": "C:/msys64/mingw64/bin/ninja.exe",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "AES_ENABLE_SANITIZERS": "ON",
+        "AES_BUILD_TESTS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "msvc-release",
+      "configurePreset": "msvc-release",
+      "configuration": "Release"
+    },
+    {
+      "name": "gcc-release",
+      "configurePreset": "gcc-release"
+    },
+    {
+      "name": "clang-release",
+      "configurePreset": "clang-release"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "msvc-release",
+      "configurePreset": "msvc-release",
+      "configuration": "Release"
+    },
+    {
+      "name": "gcc-release",
+      "configurePreset": "gcc-release"
+    },
+    {
+      "name": "clang-release",
+      "configurePreset": "clang-release"
+    }
+  ]
+}
+
